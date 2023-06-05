@@ -1,0 +1,7 @@
+source venv/bin/activate && redis-server
+source venv/bin/activate && celery -A main.celery worker --loglevel=info
+source venv/bin/activate && celery -A main.celery beat --max-interval 1 --loglevel=info
+
+~/go/bin/MailHog
+source local_run.sh
+

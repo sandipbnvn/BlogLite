@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        .heading-text {
+            color: #539d8b;
+            text-align: center;
+            text-transform: capitalize;
+        }
+
+        .bar-chart {
+            align-items: center;
+            justify-content: center;
+            /* background-color: yellow; */
+            justify-items: center;
+            /* margin-left:40px !important; */
+            display: flex;
+        }
+
+        .container {
+            max-width: 80%;
+            margin: auto;
+        }
+    </style>
+    <title>Monthly Engagement Report</title>
+</head>
+
+<body>
+    <!-- <img src="BlogLite.png" alt="bloglite image"> -->
+    <h1 class="heading-text">Hey {{ user.username }}, This is your Monthly BlogLite engagement Report</h1>
+    <p class="heading-text" style="color:gray;font-style: italic;">Report Generation Date: {{ date_string }}</p>
+    <div id="chart_div" class="container-fluid bar-chart"></div>
+    <h1 class="heading-text">Total Users Followed: {{ followed_length }}</h1>
+    <h1 class="heading-text">Total Followers Added: {{ followers_length }}</h1>
+    <h1 class="heading-text">Total Posts Added: {{ posts_length }}</h1>
+    <h1 class="heading-text"
+        style="background-color:#f5c5be; width:300px;height:40px; margin:auto;border-radius: 25px;">Posts Created</h1>
+    <div class="container">
+        {% for post in user.posts %}
+        <div class="wrapper" style="display:flex;align-items: center;justify-content: center;">
+            <h2 style="color: #539d8b;">{{ post.title }}</h2>
+        </div>
+        <div class="wrapper" style="display:flex;align-items: center;justify-content: center;">
+            <p>{{ post.description }}</p>
+        </div>
+        {% endfor %}
+    </div>
+
+
+</body>
+
+</html>
